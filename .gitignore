@@ -1,0 +1,15 @@
+# Vercel
+.vercel
+
+# Environment
+.env*.local
+
+# Large video files (originals not used in deployed site)
+Video_Principal_001.mp4
+Possibilities_Video_!.mp4
+Possibilities_Video_2_1.mp4
+Possibilities_Video_3.mp4
+Possibilities_Video_4.mp4
+
+# Unused frame captures
+frame_*.jpg
