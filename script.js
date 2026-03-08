@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════
-   POSSIBILITIES FOR YOU — Interactive Scripts
+   POSSIBILITIES FOR YOU — Interactive Scripts (Minimalist)
    ═══════════════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -41,34 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
     revealElements.forEach(el => revealObserver.observe(el));
-
-    // ── Counter Animation ──
-    const counters = document.querySelectorAll('.counter');
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-                const target = parseInt(el.dataset.target);
-                const suffix = el.dataset.suffix || '';
-                const prefix = el.dataset.prefix || '';
-                const duration = 2000;
-                const start = performance.now();
-
-                function updateCounter(now) {
-                    const elapsed = now - start;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const eased = 1 - Math.pow(1 - progress, 3);
-                    const current = Math.floor(eased * target);
-                    el.textContent = prefix + current.toLocaleString() + suffix;
-                    if (progress < 1) requestAnimationFrame(updateCounter);
-                }
-                requestAnimationFrame(updateCounter);
-                counterObserver.unobserve(el);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    counters.forEach(el => counterObserver.observe(el));
 
     // ── Video Modal ──
     const videoModal = document.getElementById('videoModal');
@@ -123,32 +95,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const faqData = [
         {
-            question: '¿Qué es la Masterclass Possibilities For You?',
-            answer: 'Es un programa intensivo de <strong>6.5 horas</strong> basado en la metodología <strong>Clifton Strengths® de Gallup</strong>. Te ayuda a descubrir tus 34 talentos naturales, definir tu propósito de vida y crear un plan de acción concreto para alcanzar tu máximo potencial.'
+            question: '¿Qué es Possibilities For You?',
+            answer: 'Es un programa intensivo de <strong>6 horas</strong> basado en la metodología <strong>Clifton Strengths® de Gallup</strong>. Te ayuda a descubrir tus 34 talentos naturales, definir tu propósito de vida y crear un plan de acción concreto.'
         },
         {
             question: '¿Qué incluye el programa?',
-            answer: 'El programa incluye:<br>• <strong>Reporte Clifton Strengths®</strong> (34 talentos, valor USD $59.99)<br>• <strong>Masterclass de 6:30 horas</strong> en formato virtual<br>• <strong>Sesión 1:1 personalizada</strong> para diagnóstico de vida<br>• <strong>Acceso a Plataforma de Coaching</strong> con recursos y herramientas de seguimiento'
+            answer: 'El programa incluye:<br>• <strong>Reporte Clifton Strengths®</strong> (34 talentos, valor USD $59.99)<br>• <strong>Sesión grupal intensiva de 6 horas</strong> en formato virtual<br>• <strong>Sesión 1:1 personalizada</strong> para diagnóstico de vida<br>• <strong>Acceso a Plataforma de Coaching</strong> con recursos y herramientas'
         },
         {
             question: '¿Quién es el facilitador?',
-            answer: '<strong>Porfirio Gómez</strong> es Coach Certificado en Fortalezas por Gallup, Licenciado en Ciencias de la Familia, con más de <strong>14 años de experiencia</strong>. Ha dado consultoría en <strong>+9 países</strong>, trabajando con <strong>+40 organizaciones</strong> como PepsiCo, Walmart, AXA Seguros y Televisa, impactando a <strong>+3,000 líderes</strong>.'
+            answer: '<strong>Porfirio Gómez</strong> es Coach Certificado en Fortalezas por Gallup con más de <strong>14 años de experiencia</strong>. Ha dado consultoría en <strong>+9 países</strong>, trabajando con <strong>+40 organizaciones</strong> como PepsiCo, Walmart, AXA Seguros y Televisa.'
         },
         {
             question: '¿Cuánto cuesta y cómo me inscribo?',
-            answer: 'Para conocer precios actualizados y próximas fechas, puedes inscribirte directamente en nuestra plataforma de boletos:<br><br><a href="https://buytickets.at/possibilitiesco" target="_blank" style="color:#d4b85c;font-weight:600;">🎟️ Inscribirme Ahora</a><br><br>O agenda una <a href="https://calendly.com/porfirio-gomez/possibilities-call" target="_blank" style="color:#d4b85c;font-weight:600;">videollamada gratuita</a> para más información.'
-        },
-        {
-            question: '¿Qué resultados puedo esperar?',
-            answer: 'Al finalizar el programa podrás:<br>• Conocer tus <strong>34 talentos</strong> y cómo potenciarlos<br>• Tener un <strong>plan de vida</strong> alineado con tu propósito<br>• Definir <strong>metas SMART</strong> con prioridades claras<br>• Construir una <strong>red de apoyo sólida</strong><br>• Desarrollar <strong>inmunidad al fracaso</strong> y resiliencia'
+            answer: 'Para conocer precios y próximas fechas:<br><br><a href="https://buytickets.at/possibilitiesco" target="_blank" style="color:#0047AB;font-weight:600;">🎟️ Inscribirme Ahora</a><br><br>O agenda una <a href="https://calendly.com/porfirio-gomez/possibilities-call" target="_blank" style="color:#0047AB;font-weight:600;">videollamada gratuita</a> para más información.'
         },
         {
             question: '¿Es presencial o virtual?',
-            answer: 'La Masterclass se imparte en <strong>formato virtual</strong>, lo que te permite participar desde cualquier lugar. El contenido es estructurado, dinámico e interactivo para asegurar la mejor experiencia de aprendizaje.'
+            answer: 'El programa se imparte en <strong>formato virtual</strong>, lo que te permite participar desde cualquier lugar. El contenido es estructurado, dinámico e interactivo.'
         },
         {
             question: 'Quiero hablar con alguien directamente',
-            answer: '¡Por supuesto! Puedes agendar una <strong>videollamada gratuita</strong> con Porfirio Gómez para resolver todas tus dudas:<br><br><a href="https://calendly.com/porfirio-gomez/possibilities-call" target="_blank" style="color:#d4b85c;font-weight:600;">📅 Agendar Videollamada</a>'
+            answer: '¡Por supuesto! Agenda una <strong>videollamada gratuita</strong> con Porfirio:<br><br><a href="https://calendly.com/porfirio-gomez/possibilities-call" target="_blank" style="color:#0047AB;font-weight:600;">📅 Agendar Videollamada</a>'
         }
     ];
 
@@ -164,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showWelcomeMessage() {
-        addBotMessage('👋 ¡Hola! Soy el <strong>Asistente Possibilities</strong>. Estoy aquí para ayudarte a conocer más sobre nuestra Masterclass. ¿Qué te gustaría saber?');
+        addBotMessage('👋 ¡Hola! Soy el <strong>Asistente Possibilities</strong>. ¿Qué te gustaría saber sobre el programa?');
         setTimeout(() => showOptions(), 400);
     }
 
@@ -184,15 +152,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleOptionClick(index, optionsContainer) {
         const faq = faqData[index];
-        // Remove the options
         if (optionsContainer) optionsContainer.remove();
-        // Show user question
         addUserMessage(faq.question);
-        // Show typing indicator briefly
         const typing = addBotMessage('<em>Escribiendo...</em>');
         setTimeout(() => {
             typing.innerHTML = faq.answer;
-            // Show options again after response
             setTimeout(() => {
                 addBotMessage('¿Hay algo más en lo que pueda ayudarte?');
                 setTimeout(() => showOptions(), 300);
